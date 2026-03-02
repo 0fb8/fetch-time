@@ -1,6 +1,9 @@
 const http = require("http");
 
 const server = http.createServer((req, res) => {
+  // enable CORS
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
   if (req.url === "/api/time" && req.method === "GET") {
     const currentTime = new Date().toISOString();
     res.writeHead(200);
