@@ -25,7 +25,7 @@ button.addEventListener("click", async () => {
       second: "2-digit",
       weekday: "short",
     });
-  } catch (erorr) {
+  } catch (error) {
     console.error("Fetch error", error);
     display.textContent = "Error: Unable to connect server";
   }
