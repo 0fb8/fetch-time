@@ -1,13 +1,19 @@
 const button = document.getElementById("fetch-btn");
 const display = document.getElementById("time-display");
 
-const API_URL = "http://localhost:3000/api/time";
+const API_BASE_URL =
+  "https://njdlrqwgegpmlsxoihaq7hoh4i0okuci.lambda-url.ap-northeast-1.on.aws";
+// const API_BASE_URL = "http://localhost:3000";
+
+const ENDPOINTS = {
+  TIME: `${API_BASE_URL}/api/time`,
+};
 
 button.addEventListener("click", async () => {
   try {
     display.textContent = "Fetching...";
 
-    const response = await fetch(API_URL);
+    const response = await fetch(ENDPOINTS.TIME);
     if (!response.ok) throw new Error("Network response was not ok");
     const data = await response.json();
 
